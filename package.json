@@ -1,0 +1,39 @@
+{
+  "name": "datawall",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "gulp clean",
+    "dist": "gulp dist",
+    "lite": "lite-server",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "postinstall": "typings install",
+    "test.world": "mocha ./tests/"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.4.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-shell": "^0.6.3",
+    "gulp-uglify": "^3.0.0",
+    "lite-server": "^2.3.0",
+    "mocha": "^3.4.2",
+    "run-sequence": "^1.2.2",
+    "systemjs-builder": "^0.16.4",
+    "typescript": "^2.3.3",
+    "typings": "^2.1.1"
+  },
+  "dependencies": {
+    "babylonjs": "^3.0.1-alpha",
+    "chai": "^4.0.2",
+    "core-js": "^2.4.1",
+    "present": "^1.0.0",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.4.0",
+    "systemjs": "^0.20.12",
+    "zone.js": "^0.8.11"
+  }
+}

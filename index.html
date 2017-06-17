@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>Data-Wall</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./assets/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!--<script type="text/javascript" src=""></script>-->
+    <!-- build:vendor -->
+    <script type="text/javascript" src="./node_modules/systemjs/dist/system.src.js"></script>
+    <script type="text/javascript" src="./systemjs.config.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:app -->
+    <script type="text/javascript">
+        System.import('app/vendor').then(function () {
+            System.import('app').catch(function (err) {
+                console.error(err);
+            });
+        });
+    </script>
+    <!-- endbuild -->
+</body>
+
+</html>

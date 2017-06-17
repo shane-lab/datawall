@@ -1,0 +1,6 @@
+dist/
+node_modules/
+typings/
+vscode/
+app/**/*.js
+*.js.map

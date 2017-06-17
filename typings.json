@@ -1,0 +1,7 @@
+{
+    "globalDependencies": {
+        "babylonjs": "file:node_modules/babylonjs/babylon.d.ts",
+        "reflect":
+        "file:node_modules/reflect-metadata/Reflect.d.ts"
+    }
+}
