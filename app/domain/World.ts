@@ -2,6 +2,8 @@ import { Entity } from './Entity';
 
 import { EventEmitter } from '../services/EventEmitter';
 
+import { IGenerator } from './worldgen/IGenerator';
+
 // @EventEmitter
 export class World {
 
@@ -11,8 +13,10 @@ export class World {
 
     private readonly scene: BABYLON.Scene;
 
-    constructor(scene: BABYLON.Scene) { 
+    constructor(scene: BABYLON.Scene, private generator: IGenerator) { 
         this.scene = scene;
+
+        this.generator.init(this);
     }
 
     getScene(): BABYLON.Scene {
@@ -23,6 +27,10 @@ export class World {
         this.scene.render();
         
         this.entities.forEach(e => {e.update(delta)});
+        
+        if (this.generator.update) {
+            this.generator.update(delta);
+        }
     } 
 
     addEntity(entity: Entity): void {
@@ -34,12 +42,10 @@ export class World {
             return;
         }
 
-        console.log('added')
-
         this.entities.push(entity);
     }
 
-    getEntities() {
+    getEntities(): ReadonlyArray<Entity> {
         let readonlyEntities = this.entities;
 
         return Object.freeze(readonlyEntities);

@@ -1,5 +1,5 @@
 export module Clock {
-    let clock =  {
+    const clock =  {
         before: performance.now(),
         getDelta() {
             let now = performance.now();

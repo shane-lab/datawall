@@ -11,10 +11,12 @@ export function bootstrap() {
     let createWorld = function () {
         let scene = new BABYLON.Scene(engine);
 
-        let camera = new BABYLON.ArcRotateCamera("arcCam", 
-        BABYLON.Tools.ToRadians(45),
-        BABYLON.Tools.ToRadians(45),
-        10.0, BABYLON.Vector3.Zero(), scene);
+        // let camera = new BABYLON.ArcRotateCamera("arcCam", 
+        // BABYLON.Tools.ToRadians(45),
+        // BABYLON.Tools.ToRadians(45),
+        // 10.0, BABYLON.Vector3.Zero(), scene);
+
+        let camera = new BABYLON.ArcRotateCamera("cam", 0, 1.1, 1000, BABYLON.Vector3.Zero(), scene);
 
         // This attaches the camera to the canvas
         camera.attachControl(canvas, true);
@@ -25,7 +27,7 @@ export function bootstrap() {
         // Default intensity is 1. Let's dim the light a small amount
         light.intensity = 0.7;
 
-        return new domain.World(scene);
+        return new domain.World(scene, new domain.worldgen.generators.PerlinGenerator(9, 1));
     };
 
     let world = createWorld();

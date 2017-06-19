@@ -10,7 +10,7 @@ export abstract class Entity implements IDisposable {
     private yaw = 0.0;
     private pitch = 0.0;
 
-    constructor(private world: World, private location = BABYLON.Vector3.Zero()) { }
+    constructor(private world: World, private location = BABYLON.Vector3.Zero()/*, protected renderer: Renderer<Entity>*/) { }
 
     public getWorld(): World {
         return this.world;
